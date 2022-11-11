@@ -9,7 +9,19 @@ entity cod_8_3 is
 end cod_8_3;
 
 architecture solucion of cod_8_3 is
-begin
--- Escribe aquí tu solución.
+    signal valido_and_codigo: std_logic_vector (3 downto 0);
+begin-- Escribe aquí tu solución.
+    valido <= valido_and_codigo(3);
+    salida <= valido_and_codigo(2 downto 0);
+    with entrada select 
+        valido_and_codigo <=
+        "1000" when "00000001",  -- el bit izquierdo a la salida "valido"
+        "1001" when "00000010", 
+        "1010" when "00000100",
+        "1011" when "00001000",
+        "1100" when "00010000", 
+        "1101" when "00100000", 
+        "1110" when "01000000",
+        "1111" when "10000000",
+        "0000" when others;
 end solucion;
-
