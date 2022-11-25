@@ -10,9 +10,7 @@ end cod_8_3;
 
 architecture solucion of cod_8_3 is
     signal valido_and_codigo: std_logic_vector (3 downto 0);
-begin-- Escribe aquí tu solución.
-    valido <= valido_and_codigo(3);
-    salida <= valido_and_codigo(2 downto 0);
+begin-- Escribe aquí tu solución.   
     with entrada select 
         valido_and_codigo <=
         "1000" when "00000001",  -- el bit izquierdo a la salida "valido"
@@ -24,4 +22,6 @@ begin-- Escribe aquí tu solución.
         "1110" when "01000000",
         "1111" when "10000000",
         "0000" when others;
+ valido <= valido_and_codigo(3);
+ salida <= valido_and_codigo(2 downto 0);
 end solucion;
